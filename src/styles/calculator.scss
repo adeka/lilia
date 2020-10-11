@@ -1,0 +1,128 @@
+.intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.inputs-wrapper {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: #ffe6d4;
+  position: relative;
+}
+.inputs {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.results {
+  padding-top: 2em;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.results-chart {
+  padding-top: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 500px;
+  padding-bottom: 4em;
+}
+
+.pLiveBirth {
+  font-size: 3em;
+  color: black !important;
+}
+
+.see-results-button {
+  cursor: pointer;
+  border: none !important;
+  background: black !important;
+  &:hover {
+    background: rgb(31, 31, 31) !important;
+  }
+  color: white !important;
+  position: relative;
+  padding: 1em;
+  font-size: 16px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  bottom: 5px;
+}
+.egg-icon {
+  position: relative;
+  right: 1em;
+  top: 1.75em;
+  float: left;
+  fill: black !important;
+  svg {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.age-slider {
+  margin-top: 5em;
+}
+
+.egg-slider {
+  margin-top: 5em;
+}
+
+.ant-slider-handle {
+  border-color: #e0a479 !important;
+  background: #e0a479 !important;
+}
+
+.ant-slider-rail {
+  background: #e3c5af !important;
+}
+.ant-slider-track {
+  background: #e0a479 !important;
+}
+.ant-slider-step {
+  background: none !important;
+}
+
+.ant-tooltip-content {
+  cursor: pointer;
+  font-size: 1.5em;
+  background: #e0a479 !important;
+}
+
+.ant-tooltip-arrow-content {
+  background: #e0a479 !important;
+}
+
+.ant-tooltip-inner {
+  color: black !important;
+  background: none !important;
+}
+
+.literature-wrapper {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: #ffe6d4;
+  position: relative;
+}
+.literature {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.literature-card {
+  background: #fff9f5;
+  padding: 2em;
+}
+
+.literature-icon {
+  fill: black !important;
+  svg: {
+  }
+}

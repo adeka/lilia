@@ -1,0 +1,42 @@
+@import url("https://use.typekit.net/iks4kda.css");
+
+@import "./variables.scss";
+
+body {
+  background: #db8528;
+}
+.app {
+  background: #fff9f5;
+}
+
+* {
+  font-family: acumin-pro-wide, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+p {
+  font-size: 18px;
+}
+
+.footer-wrapper {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background: #db8528;
+  position: relative;
+}
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  color: white;
+  hr {
+    border: none;
+    border-bottom: 1px solid white;
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+  img: {
+    width: 80px;
+  }
+}
