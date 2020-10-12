@@ -7,10 +7,20 @@ export const userState = atom({
 
 export const ageState = atom({
   key: "age",
-  default: 28
+  default: 35
 });
 
 export const eggState = atom({
   key: "eggs",
-  default: 2
+  default: 10
+});
+
+export const graphState = atom({
+  key: "graph",
+  default: "eggs"
+});
+
+export const showResultState = atom({
+  key: "result",
+  default: false
 });

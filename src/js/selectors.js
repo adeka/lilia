@@ -6,5 +6,5 @@ export const userSelector = selector({
   get: ({ get }) => {
     const user = get(userState);
     return user;
-  },
+  }
 });

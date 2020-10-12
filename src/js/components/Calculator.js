@@ -3,7 +3,7 @@ import React, { useEffect, Suspense } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useRecoilValue, useRecoilState } from "recoil";
-import { ageState, eggState } from "JS/atoms";
+import { ageState, eggState, graphState, showResultState } from "JS/atoms";
 import { userSelector } from "JS/selectors";
 
 import { Layout, Input, Row, Col, Card, Spin } from "antd";
@@ -19,6 +19,10 @@ import { Column, Line } from "@ant-design/charts";
 import { Add, Delete, Egg, Literature } from "Icons";
 import { Slider } from "antd";
 import CountUp from "react-countup";
+import GraphPlaceholder from "Assets/graph.png";
+import { Select } from "antd";
+
+const { Option } = Select;
 
 import "Styles/calculator.scss";
 
@@ -79,9 +83,6 @@ const CalculatorInputs = () => {
               </Title>
             </Typography>
           </Col>
-          <Col span={3}>
-            {/* <button className="see-results-button">See Results</button> */}
-          </Col>
         </Row>
 
         <div className="age-slider">
@@ -124,6 +125,7 @@ const CalculatorInputs = () => {
 const LiveBirthResults = () => {
   const age = useRecoilValue(ageState);
   const eggs = useRecoilValue(eggState);
+
   return (
     <div className="results">
       <div className="egg-icon">{Egg}</div>
@@ -131,9 +133,9 @@ const LiveBirthResults = () => {
         className="pLiveBirth"
         start={0}
         end={pLiveBirth(age, eggs) * 100}
-        duration={2}
+        duration={1.5}
         separator=" "
-        decimals={2}
+        decimals={0}
         decimal="."
         prefix=""
         suffix=" %"
@@ -146,11 +148,62 @@ const LiveBirthResults = () => {
 const LiveBirthResultsChart = () => {
   const age = useRecoilValue(ageState);
   const eggs = useRecoilValue(eggState);
+  const [graph, setGraph] = useRecoilState(graphState);
 
-  let data = [];
+  let config = {
+    data: []
+  };
+
+  let eggsData = [];
+  for (let i = 0; i < 31; i++) {
+    eggsData = [
+      ...eggsData,
+      {
+        eggs: i,
+        pLiveBirth: pLiveBirth(age, i) * 100
+      }
+    ];
+  }
+
+  const eggsConfig = {
+    data: eggsData,
+    xField: "eggs",
+    yField: "pLiveBirth",
+    columnStyle: {
+      fill: "rgb(224, 164, 121)"
+    },
+    annotations: [
+      {
+        type: "region",
+        start: xScale => {
+          const ratio = xScale.ticks ? 1 / xScale.ticks.length : 1;
+          const x = xScale.scale(eggs) - ratio / 2;
+          return [`${x * 100}%`, "0%"];
+        },
+        end: xScale => {
+          const ratio = xScale.ticks ? 1 / xScale.ticks.length : 1;
+          const x = xScale.scale(eggs) + ratio / 2;
+          return [`${x * 100}%`, "100%"];
+        },
+        style: {}
+      },
+      {
+        type: "text",
+        position: [eggs, "max"],
+        content: "You",
+        style: {
+          textAlign: "center",
+          position: "relative",
+          top: "15px"
+        }
+      }
+    ]
+  };
+
+  let ageData = [];
   for (let i = 24; i < 45; i++) {
-    data = [
-      ...data,
+    ageData = [
+      ...ageData,
       {
         age: i,
         pLiveBirth: pLiveBirth(i, eggs) * 100
@@ -158,8 +211,8 @@ const LiveBirthResultsChart = () => {
     ];
   }
 
-  const config = {
-    data,
+  const ageConfig = {
+    data: ageData,
     xField: "age",
     yField: "pLiveBirth",
     columnStyle: {
@@ -195,7 +248,21 @@ const LiveBirthResultsChart = () => {
 
   return (
     <div className="results-chart">
-      <Column {...config} />
+      {graph == "eggs" && <Column {...eggsConfig} />}
+      {graph == "age" && <Column {...ageConfig} />}
+      <div className="graph-select">
+        {" "}
+        <Select
+          defaultValue="eggs"
+          style={{ width: 240 }}
+          onChange={value => {
+            setGraph(value);
+          }}
+        >
+          <Option value="eggs">Number of mature eggs</Option>
+          <Option value="age">Age</Option>
+        </Select>
+      </div>
     </div>
   );
 };
@@ -221,8 +288,8 @@ const CalculatorLiterature = () => {
                 cryopreservation: a counseling tool for physicians and patients
               </Title>
 
-              <a href="https://pubmed.ncbi.nlm.nih.gov/28166330/">
-                https://pubmed.ncbi.nlm.nih.gov/28166330/
+              <a href="https://academic.oup.com/humrep/article/32/4/853/2968357">
+                https://academic.oup.com/humrep/article/32/4/853/2968357
               </a>
             </Col>
           </Row>
@@ -233,12 +300,33 @@ const CalculatorLiterature = () => {
 };
 
 const Calculator = () => {
+  const [showResults, setShowResults] = useRecoilState(showResultState);
+
   return (
     <>
       <CalculatorIntro />
       <CalculatorInputs />
-      <LiveBirthResults />
-      <LiveBirthResultsChart />
+      <div className="show-results">
+        {showResults && (
+          <>
+            <LiveBirthResults />
+            <LiveBirthResultsChart />
+          </>
+        )}
+        {!showResults && (
+          <div className="results-button-wrapper">
+            <button
+              className="see-results-button"
+              onClick={() => {
+                setShowResults(true);
+              }}
+            >
+              See Results
+            </button>
+            <img className="graph-placeholder" src={GraphPlaceholder} />
+          </div>
+        )}
+      </div>
       <CalculatorLiterature />
     </>
   );

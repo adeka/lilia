@@ -31,12 +31,31 @@
   margin: 0 auto;
   position: relative;
   height: 500px;
-  padding-bottom: 4em;
+  padding-bottom: 6em;
+}
+
+.graph-select {
+  margin-top: 2em;
+  text-align: center;
 }
 
 .pLiveBirth {
   font-size: 3em;
   color: black !important;
+}
+
+.graph-placeholder {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+.results-button-wrapper {
+  text-align: center;
+  padding: 4em;
+  min-height: 400px;
+  position: relative;
 }
 
 .see-results-button {
