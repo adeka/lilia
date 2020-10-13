@@ -60,9 +60,9 @@ const CalculatorIntro = () => {
         <p>
           Although no number of eggs can guarantee a live birth, we have
           developed a tool to give you insight into egg freezing success rates
-          by proving data scientific literature. This calculator uses your age
-          at egg retrieval and the number of mature eggs frozen to predict the
-          probability of having at least one live birth.
+          by referencing data gathered by scientific literature. This calculator
+          uses your age at egg retrieval and the number of mature eggs frozen to
+          predict the probability of having at least one live birth.
         </p>
       </Typography>
     </div>
