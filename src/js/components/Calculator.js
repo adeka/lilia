@@ -323,7 +323,10 @@ const Calculator = () => {
             >
               See Results
             </button>
-            <img className="graph-placeholder" src={GraphPlaceholder} />
+            <img
+              className="graph-placeholder"
+              src="https://uploads-ssl.webflow.com/5ed945e402f9813f72420b3c/5fa0369d0d962e3a4c107498_graph.png"
+            />
           </div>
         )}
       </div>

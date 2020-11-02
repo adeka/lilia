@@ -20,15 +20,7 @@ const App = props => {
   return (
     <div className="app">
       <RecoilRoot>
-        <Router>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Calculator />
-            </Route>
-          </Switch>
-          <Footer />
-        </Router>
+        <Calculator />
       </RecoilRoot>
     </div>
   );
