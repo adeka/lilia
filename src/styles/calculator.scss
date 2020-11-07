@@ -1,5 +1,11 @@
+$maxWidth: 60%;
+
 .intro {
-  max-width: 1200px;
+  max-width: $maxWidth;
+  @media (max-width: 1200px) {
+    max-width: 90%;
+  }
+
   margin: 0 auto;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -12,7 +18,11 @@
   position: relative;
 }
 .inputs {
-  max-width: 1200px;
+  max-width: $maxWidth;
+  @media (max-width: 1200px) {
+    max-width: 90%;
+  }
+
   margin: 0 auto;
   position: relative;
 }
@@ -26,8 +36,12 @@
 }
 
 .results-chart {
+  max-width: $maxWidth;
+  @media (max-width: 1200px) {
+    max-width: 90%;
+  }
+
   padding-top: 2em;
-  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   height: 500px;
@@ -50,6 +64,7 @@
   left: 50%;
   top: 60%;
   transform: translate(-50%, -50%);
+  max-width: 100%;
 }
 .results-button-wrapper {
   text-align: center;
@@ -58,6 +73,21 @@
   position: relative;
 }
 
+.slider-text {
+  font-size: 20pt !important;
+  position: relative;
+  bottom: 3px;
+
+  @media (max-width: 1200px) {
+    bottom: 40px;
+  }
+}
+
+.try-it-out {
+  @media (max-width: 1200px) {
+    font-size: 20pt !important;
+  }
+}
 .see-results-button {
   cursor: pointer;
   border: none !important;
@@ -74,6 +104,10 @@
   bottom: 5px;
 }
 .egg-icon {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
   position: relative;
   right: 1em;
   top: 1.75em;
@@ -126,11 +160,15 @@
 .literature-wrapper {
   padding-top: 2em;
   padding-bottom: 2em;
-  background: #ffe6d4;
+  // background: #ffe6d4;
   position: relative;
 }
 .literature {
-  max-width: 1200px;
+  max-width: $maxWidth;
+  @media (max-width: 1200px) {
+    max-width: 90%;
+  }
+
   margin: 0 auto;
   position: relative;
 }

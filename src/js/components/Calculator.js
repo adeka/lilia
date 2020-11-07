@@ -78,7 +78,7 @@ const CalculatorInputs = () => {
         <Row>
           <Col span={21}>
             <Typography>
-              <Title level={2}>
+              <Title className="try-it-out">
                 Try it out — enter your age and number of eggs frozen{" "}
               </Title>
             </Typography>
@@ -87,10 +87,12 @@ const CalculatorInputs = () => {
 
         <div className="age-slider">
           <Row>
-            <Col span={4}>
-              <Title level={3}>Age</Title>
+            <Col xs={24} lg={4}>
+              <Title level={3} className="slider-text">
+                Age
+              </Title>
             </Col>
-            <Col span={20}>
+            <Col xs={24} lg={20}>
               <Slider
                 value={age}
                 min={24}
@@ -103,10 +105,12 @@ const CalculatorInputs = () => {
         </div>
         <div className="egg-slider">
           <Row>
-            <Col span={4}>
-              <Title level={3}>Mature Eggs</Title>
+            <Col xs={24} lg={4}>
+              <Title level={3} className="slider-text">
+                Eggs Secured
+              </Title>
             </Col>
-            <Col span={20}>
+            <Col xs={24} lg={20}>
               <Slider
                 value={eggs}
                 min={1}
@@ -272,27 +276,13 @@ const CalculatorLiterature = () => {
     <div className="literature-wrapper">
       <div className="literature">
         <Typography>
-          <Title level={2}>Literature</Title>
           <p>
-            This calculator was built by referencing an evidence based
-            predictive model developed by the following scientific literature:
+            Built using an evidence-based predictive model developed by Goldman
+            et al 2017
           </p>
-
-          <Row className="literature-card">
-            <Col span={3}>
-              <div className="literature-icon">{Literature}</div>
-            </Col>
-            <Col span={21}>
-              <Title level={3}>
-                Predicting the likelihood of live birth for elective oocyte
-                cryopreservation: a counseling tool for physicians and patients
-              </Title>
-
-              <a href="https://academic.oup.com/humrep/article/32/4/853/2968357">
-                https://academic.oup.com/humrep/article/32/4/853/2968357
-              </a>
-            </Col>
-          </Row>
+          <a href="https://academic.oup.com/humrep/article/32/4/853/2968357">
+            https://academic.oup.com/humrep/article/32/4/853/2968357
+          </a>
         </Typography>
       </div>
     </div>

@@ -1,5 +1,4 @@
 @import url("https://use.typekit.net/iks4kda.css");
-
 @import "./variables.scss";
 
 body {
@@ -11,12 +10,30 @@ body {
 
 * {
   font-family: acumin-pro-wide, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-style: normal !important;
 }
 
+$headerColor: #1a1b1f;
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $headerColor !important;
+}
+
+h1 {
+  font-size: 30pt !important;
+}
+
 p {
-  font-size: 18px;
+  font-size: 14pt;
+  font-family: soleil, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: #ad9a9a !important;
 }
 
 .footer-wrapper {
